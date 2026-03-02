@@ -13,12 +13,15 @@
             <th>Nome</th>
             <th>Email</th>
             <th>Ações</th>
+            <th>Excluir</th>
         </tr>
-        <?php foreach($usuarios as $u): ?>
+        <?php foreach($usuarios as $id => $u): ?>
             <tr>
                 <td><?=$u['nome']?></td>
                 <td><?=$u['email']?></td>
-                <td>próxima aula</td>
+                <td><a href="/PB_PHP/MVC_exemplo/usuario/telaEditar?id=<?= $id ?>">Editar</a></td>
+                <td><a href="/PB_PHP/MVC_exemplo/usuario/excluir?id=<?= $id ?>">Excluir</a></td>
+                
             </tr>
         <?php endforeach; ?>
     </table>

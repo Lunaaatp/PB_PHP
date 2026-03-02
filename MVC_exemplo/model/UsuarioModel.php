@@ -24,4 +24,24 @@ class Usuario{
         // retorna a lista de usuarios
         return $_SESSION['usuarios'] ??[];
     }
+
+    public static function buscar($id){
+        return $_SESSION['usuarios'][$id] ?? null;
+    }
+
+    public function atualizar($id){ //verifica se o usuário existem
+        if(isset($_SESSION['usuarios'][$id])){ //atualizar com novos dados
+            $_SESSION['usuarios'][$id] = [
+                'nome' => $this->nome,
+                'email' => $this->email,
+            ];
+        }
+    }
+
+    public static function excluir($id){
+        if(isset($_SESSION['usuarios'][$id])){
+            unset($_SESSION['usuarios'][$id]);
+        }
+    }
+
 }
